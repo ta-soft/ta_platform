@@ -39,10 +39,12 @@
     el.textContent = new Date().getFullYear();
   });
 
-  // Enquiry form (static demo: validates then shows the same success message as the original site)
-  var form = document.getElementById("enquiry-form");
-  if (form) {
-    var success = document.getElementById("form-success");
+  // Forms (static demo: validate then show a success message — no backend)
+  // #enquiry-form (contact page) and #quote-form (homepage) share identical behavior.
+  function wireDemoForm(formId, successId) {
+    var form = document.getElementById(formId);
+    if (!form) return;
+    var success = document.getElementById(successId);
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var valid = true;
@@ -64,12 +66,16 @@
       }
     });
     form.querySelectorAll("[required]").forEach(function (input) {
-      input.addEventListener("input", function () {
+      var clear = function () {
         var field = input.closest(".field");
         if (field) field.classList.remove("invalid");
-      });
+      };
+      input.addEventListener("input", clear);
+      input.addEventListener("change", clear);
     });
   }
+  wireDemoForm("enquiry-form", "form-success");
+  wireDemoForm("quote-form", "quote-success");
   // Discreet client-side logo preview switcher (New vs Original)
   var logoSwitcher = document.querySelector("[data-logo-switcher]");
   if (logoSwitcher) {

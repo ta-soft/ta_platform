@@ -38,6 +38,7 @@ def head(title, desc, depth):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,600;0,700;0,800;1,700;1,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{rel(depth,'assets/css/style.css')}">
+<noscript><style>.reveal{{opacity:1;transform:none}}</style></noscript>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -323,6 +324,69 @@ def home():
         <p>I would be happy to get Adrian to do any other electrical work I needed done.</p>
       </blockquote>
       <cite>Leanne Pearce <small>Home Owner</small></cite>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="quote">
+  <div class="container quote-grid">
+    <div class="reveal">
+      <p class="eyebrow">Service areas</p>
+      <h2>Proud Hoppers Crossing locals</h2>
+      <p>We service Melbourne's west and greater Victoria — domestic, commercial and industrial — with clients in Werribee including Ray White Werribee and Cartridge World Werribee.</p>
+      <ul class="check-list">
+        <li>Hoppers Crossing — our home base</li>
+        <li>Werribee and Melbourne's west</li>
+        <li>Greater Victoria</li>
+      </ul>
+      <p>One main point of contact, every time — and a Certificate of Compliance with every job.</p>
+    </div>
+    <div class="form-card reveal">
+      <h2>Get a free quote</h2>
+      <p style="color:var(--muted)">Obligation-free advice from experienced, fully licensed electricians.</p>
+      <form id="quote-form" novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="q-name">Name <span class="req">*</span></label>
+            <input id="q-name" name="name" type="text" autocomplete="name" required>
+            <span class="error">Please enter your name.</span>
+          </div>
+          <div class="field">
+            <label for="q-phone">Phone <span class="req">*</span></label>
+            <input id="q-phone" name="phone" type="tel" autocomplete="tel" required>
+            <span class="error">Please enter a contact number.</span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="q-suburb">Suburb <span class="req">*</span></label>
+            <input id="q-suburb" name="suburb" type="text" autocomplete="address-level2" required>
+            <span class="error">Please enter your suburb.</span>
+          </div>
+          <div class="field">
+            <label for="q-service">Service needed <span class="req">*</span></label>
+            <select id="q-service" name="service" required>
+              <option value="">Select a service…</option>
+              <option>Property Maintenance</option>
+              <option>Switchboard Upgrade</option>
+              <option>Exit &amp; Emergency Lighting Testing</option>
+              <option>LED Lighting Upgrades</option>
+              <option>New Installation</option>
+              <option>Other / not sure</option>
+            </select>
+            <span class="error">Please choose a service.</span>
+          </div>
+        </div>
+        <button class="btn btn--primary" type="submit" style="width:100%;justify-content:center">Request a call back</button>
+        <p class="form-note">Prefer to talk? Call <a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a> — including emergency call outs.</p>
+      </form>
+      <div class="form-success" id="quote-success" role="status">
+        <div class="tick">
+          <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+        <h3>Your request has been received.</h3>
+        <p>We will be in touch shortly.</p>
+      </div>
     </div>
   </div>
 </section>
