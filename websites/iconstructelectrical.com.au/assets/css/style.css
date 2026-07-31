@@ -93,6 +93,8 @@ li { margin-bottom: .35em; }
   box-shadow: var(--shadow-lg); padding: 8px; display: none;
 }
 .nav-item--has-sub:hover .sub-nav, .nav-item--has-sub:focus-within .sub-nav { display: block; }
+/* Bridge the 8px hover gap so moving the mouse into the menu keeps it open */
+.sub-nav::before { content:""; position:absolute; top:-8px; left:0; right:0; height:8px; }
 .sub-nav li { margin: 0; }
 .sub-nav a { display: block; padding: 10px 14px; border-radius: 8px; color: var(--ink); font-size: .95rem; }
 .sub-nav a:hover { background: var(--bg-soft); color: var(--blue); }
@@ -316,6 +318,34 @@ li { margin-bottom: .35em; }
 .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.visible { opacity: 1; transform: none; }
 .mt-0 { margin-top: 0; }
+
+/* ---------- Logo preview switcher (light theme) ---------- */
+.logo-switcher { position: fixed; right: 18px; bottom: 18px; z-index: 200; font-family: inherit; }
+.logo-switcher-toggle {
+  height: 34px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--line);
+  background: #fff; color: var(--muted); box-shadow: var(--shadow);
+  cursor: pointer; font-weight: 700; font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+  opacity: .78; transition: opacity .2s ease, box-shadow .2s ease, color .2s ease;
+}
+.logo-switcher-toggle:hover, .logo-switcher.is-open .logo-switcher-toggle { opacity: 1; color: var(--navy); box-shadow: var(--shadow-lg); }
+.logo-switcher-panel {
+  position: absolute; right: 0; bottom: 42px; width: 210px; padding: 14px;
+  background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-lg); display: none;
+}
+.logo-switcher.is-open .logo-switcher-panel { display: block; }
+.logo-switcher-panel p { margin: 0 0 10px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.logo-switcher-panel button {
+  display: flex; width: 100%; align-items: center; justify-content: space-between; margin-top: 8px;
+  padding: 10px 12px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 8px;
+  color: var(--ink); cursor: pointer; font-weight: 700; font-size: 13px; text-align: left;
+}
+.logo-switcher-panel button:hover, .logo-switcher-panel button[aria-pressed="true"] {
+  border-color: var(--blue); color: var(--navy); background: rgba(28, 111, 184, .08);
+}
+@media (max-width: 640px) {
+  .logo-switcher { right: 12px; bottom: 12px; }
+  .logo-switcher-panel { width: 190px; }
+}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 980px) {

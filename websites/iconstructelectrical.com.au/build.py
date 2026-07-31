@@ -54,7 +54,9 @@ def header(depth, active):
     return f"""<header class="site-header">
   <div class="container">
     <a class="brand" href="{rel(depth, '')}" aria-label="iConstruct Electrical Services — home">
-      <img src="{rel(depth, 'assets/logo.png')}" alt="iConstruct Electrical Services logo" width="283" height="66">
+      <span class="brand-slot" data-logo-slot>
+        <img src="{rel(depth, 'assets/logo.svg')}" alt="iConstruct Electrical Services logo" width="283" height="66">
+      </span>
     </a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation">
       <span></span><span></span><span></span>
@@ -117,7 +119,7 @@ def footer(depth):
     return f"""<footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
-      <img src="{rel(depth, 'assets/footer-logo.png')}" alt="iES — iConstruct Electrical Services" width="101" height="72">
+      <img src="{rel(depth, 'assets/footer-logo.svg')}" alt="iES — iConstruct Electrical Services" width="214" height="96">
       <p>Licensed electricians taking care of all your electrical needs — domestic, commercial and industrial — including emergency call outs. Proud Hoppers Crossing locals, servicing Melbourne's west and greater Victoria.</p>
     </div>
     <div class="footer-col">
@@ -143,6 +145,14 @@ def footer(depth):
     </div>
   </div>
 </footer>
+<div class="logo-switcher" data-logo-switcher data-logo-original="{rel(depth, 'assets/logo-original-white.png')}">
+  <button class="logo-switcher-toggle" type="button" aria-expanded="false" aria-controls="logo-switcher-panel" data-logo-toggle>Logo</button>
+  <div class="logo-switcher-panel" id="logo-switcher-panel" aria-label="Logo preview options" data-logo-panel>
+    <p>Logo preview</p>
+    <button type="button" data-logo-variant="new" aria-pressed="true">New</button>
+    <button type="button" data-logo-variant="original" aria-pressed="false">Original</button>
+  </div>
+</div>
 <script src="{rel(depth, 'assets/js/main.js')}" defer></script>
 </body>
 </html>
